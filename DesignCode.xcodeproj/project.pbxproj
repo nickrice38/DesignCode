@@ -12,6 +12,18 @@
 		C433A896277DFA0E0044DC7F /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A895277DFA0E0044DC7F /* UpdateDetail.swift */; };
 		C433A898277DFCA90044DC7F /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A897277DFCA90044DC7F /* UpdateStore.swift */; };
 		C433A89A277E04BE0044DC7F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A899277E04BE0044DC7F /* TabBar.swift */; };
+		C433A89C2786145A0044DC7F /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433A89B2786145A0044DC7F /* RingView.swift */; };
+		C4D6F6BD2786241A008BAEB2 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D6F6BC2786241A008BAEB2 /* Modifiers.swift */; };
+		C4D6F6C927862793008BAEB2 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6BF27862793008BAEB2 /* WorkSans-Regular.ttf */; };
+		C4D6F6CA27862793008BAEB2 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C027862793008BAEB2 /* WorkSans-Light.ttf */; };
+		C4D6F6CB27862793008BAEB2 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C127862793008BAEB2 /* WorkSans-ExtraBold.ttf */; };
+		C4D6F6CC27862793008BAEB2 /* WorkSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C227862793008BAEB2 /* WorkSans-ExtraLight.ttf */; };
+		C4D6F6CD27862793008BAEB2 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C327862793008BAEB2 /* WorkSans-Medium.ttf */; };
+		C4D6F6CE27862793008BAEB2 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C427862793008BAEB2 /* WorkSans-SemiBold.ttf */; };
+		C4D6F6CF27862793008BAEB2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C527862793008BAEB2 /* OFL.txt */; };
+		C4D6F6D027862793008BAEB2 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C627862793008BAEB2 /* WorkSans-Thin.ttf */; };
+		C4D6F6D127862793008BAEB2 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C727862793008BAEB2 /* WorkSans-Black.ttf */; };
+		C4D6F6D227862793008BAEB2 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C827862793008BAEB2 /* WorkSans-Bold.ttf */; };
 		C4FC1CB6277C889C000362CF /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */; };
 		C4FC1CB8277C889C000362CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB7277C889C000362CF /* ContentView.swift */; };
 		C4FC1CBA277C889D000362CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FC1CB9277C889D000362CF /* Assets.xcassets */; };
@@ -26,6 +38,19 @@
 		C433A895277DFA0E0044DC7F /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
 		C433A897277DFCA90044DC7F /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
 		C433A899277E04BE0044DC7F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		C433A89B2786145A0044DC7F /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		C4D6F6BC2786241A008BAEB2 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		C4D6F6BF27862793008BAEB2 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		C4D6F6C027862793008BAEB2 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		C4D6F6C127862793008BAEB2 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C4D6F6C227862793008BAEB2 /* WorkSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C4D6F6C327862793008BAEB2 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		C4D6F6C427862793008BAEB2 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		C4D6F6C527862793008BAEB2 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		C4D6F6C627862793008BAEB2 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		C4D6F6C727862793008BAEB2 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
+		C4D6F6C827862793008BAEB2 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		C4D6F6D327862863008BAEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C4FC1CB2277C889C000362CF /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeApp.swift; sourceTree = "<group>"; };
 		C4FC1CB7277C889C000362CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4D6F6BE27862793008BAEB2 /* Work_Sans */ = {
+			isa = PBXGroup;
+			children = (
+				C4D6F6BF27862793008BAEB2 /* WorkSans-Regular.ttf */,
+				C4D6F6C027862793008BAEB2 /* WorkSans-Light.ttf */,
+				C4D6F6C127862793008BAEB2 /* WorkSans-ExtraBold.ttf */,
+				C4D6F6C227862793008BAEB2 /* WorkSans-ExtraLight.ttf */,
+				C4D6F6C327862793008BAEB2 /* WorkSans-Medium.ttf */,
+				C4D6F6C427862793008BAEB2 /* WorkSans-SemiBold.ttf */,
+				C4D6F6C527862793008BAEB2 /* OFL.txt */,
+				C4D6F6C627862793008BAEB2 /* WorkSans-Thin.ttf */,
+				C4D6F6C727862793008BAEB2 /* WorkSans-Black.ttf */,
+				C4D6F6C827862793008BAEB2 /* WorkSans-Bold.ttf */,
+			);
+			path = Work_Sans;
+			sourceTree = "<group>";
+		};
 		C4FC1CA9277C889C000362CF = {
 			isa = PBXGroup;
 			children = (
@@ -65,8 +107,11 @@
 		C4FC1CB4277C889C000362CF /* DesignCode */ = {
 			isa = PBXGroup;
 			children = (
+				C4D6F6D327862863008BAEB2 /* Info.plist */,
 				C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */,
 				C4FC1CB7277C889C000362CF /* ContentView.swift */,
+				C433A89B2786145A0044DC7F /* RingView.swift */,
+				C4D6F6BC2786241A008BAEB2 /* Modifiers.swift */,
 				C4FC1CC3277CA81C000362CF /* MenuView.swift */,
 				C4FC1CC5277CC0CF000362CF /* Home.swift */,
 				C433A891277DE1E00044DC7F /* HomeView.swift */,
@@ -75,6 +120,7 @@
 				C433A895277DFA0E0044DC7F /* UpdateDetail.swift */,
 				C433A899277E04BE0044DC7F /* TabBar.swift */,
 				C4FC1CB9277C889D000362CF /* Assets.xcassets */,
+				C4D6F6BE27862793008BAEB2 /* Work_Sans */,
 				C4FC1CBB277C889D000362CF /* Preview Content */,
 			);
 			path = DesignCode;
@@ -146,8 +192,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D6F6C927862793008BAEB2 /* WorkSans-Regular.ttf in Resources */,
 				C4FC1CBD277C889D000362CF /* Preview Assets.xcassets in Resources */,
 				C4FC1CBA277C889D000362CF /* Assets.xcassets in Resources */,
+				C4D6F6D027862793008BAEB2 /* WorkSans-Thin.ttf in Resources */,
+				C4D6F6CF27862793008BAEB2 /* OFL.txt in Resources */,
+				C4D6F6CB27862793008BAEB2 /* WorkSans-ExtraBold.ttf in Resources */,
+				C4D6F6CC27862793008BAEB2 /* WorkSans-ExtraLight.ttf in Resources */,
+				C4D6F6CE27862793008BAEB2 /* WorkSans-SemiBold.ttf in Resources */,
+				C4D6F6CD27862793008BAEB2 /* WorkSans-Medium.ttf in Resources */,
+				C4D6F6D127862793008BAEB2 /* WorkSans-Black.ttf in Resources */,
+				C4D6F6CA27862793008BAEB2 /* WorkSans-Light.ttf in Resources */,
+				C4D6F6D227862793008BAEB2 /* WorkSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C433A89C2786145A0044DC7F /* RingView.swift in Sources */,
+				C4D6F6BD2786241A008BAEB2 /* Modifiers.swift in Sources */,
 				C433A89A277E04BE0044DC7F /* TabBar.swift in Sources */,
 				C433A896277DFA0E0044DC7F /* UpdateDetail.swift in Sources */,
 				C4FC1CB8277C889C000362CF /* ContentView.swift in Sources */,
@@ -300,11 +358,12 @@
 				DEVELOPMENT_TEAM = J4JD84FNLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DesignCode/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,11 +388,12 @@
 				DEVELOPMENT_TEAM = J4JD84FNLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DesignCode/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
