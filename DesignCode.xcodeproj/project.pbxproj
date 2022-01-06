@@ -24,6 +24,7 @@
 		C4D6F6D027862793008BAEB2 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C627862793008BAEB2 /* WorkSans-Thin.ttf */; };
 		C4D6F6D127862793008BAEB2 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C727862793008BAEB2 /* WorkSans-Black.ttf */; };
 		C4D6F6D227862793008BAEB2 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D6F6C827862793008BAEB2 /* WorkSans-Bold.ttf */; };
+		C4D6F6D527876F24008BAEB2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D6F6D427876F24008BAEB2 /* CourseList.swift */; };
 		C4FC1CB6277C889C000362CF /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */; };
 		C4FC1CB8277C889C000362CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB7277C889C000362CF /* ContentView.swift */; };
 		C4FC1CBA277C889D000362CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FC1CB9277C889D000362CF /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		C4D6F6C727862793008BAEB2 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		C4D6F6C827862793008BAEB2 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
 		C4D6F6D327862863008BAEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C4D6F6D427876F24008BAEB2 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 		C4FC1CB2277C889C000362CF /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeApp.swift; sourceTree = "<group>"; };
 		C4FC1CB7277C889C000362CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C4FC1CC3277CA81C000362CF /* MenuView.swift */,
 				C4FC1CC5277CC0CF000362CF /* Home.swift */,
 				C433A891277DE1E00044DC7F /* HomeView.swift */,
+				C4D6F6D427876F24008BAEB2 /* CourseList.swift */,
 				C433A893277DF2020044DC7F /* UpdateList.swift */,
 				C433A897277DFCA90044DC7F /* UpdateStore.swift */,
 				C433A895277DFA0E0044DC7F /* UpdateDetail.swift */,
@@ -218,6 +221,7 @@
 				C4D6F6BD2786241A008BAEB2 /* Modifiers.swift in Sources */,
 				C433A89A277E04BE0044DC7F /* TabBar.swift in Sources */,
 				C433A896277DFA0E0044DC7F /* UpdateDetail.swift in Sources */,
+				C4D6F6D527876F24008BAEB2 /* CourseList.swift in Sources */,
 				C4FC1CB8277C889C000362CF /* ContentView.swift in Sources */,
 				C4FC1CC4277CA81C000362CF /* MenuView.swift in Sources */,
 				C433A894277DF2020044DC7F /* UpdateList.swift in Sources */,
