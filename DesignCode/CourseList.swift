@@ -10,10 +10,12 @@ import SwiftUI
 struct CourseList: View {
     @State var courses = courseData
     @State var active = false
+    @State var activeIndex = -1
+    @State var activeView = CGSize.zero
     
     var body: some View {
         ZStack {
-            Color.black.opacity(active ? 0.5 : 0)
+            Color.black.opacity(Double(self.activeView.height/500))
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
             
@@ -28,8 +30,17 @@ struct CourseList: View {
                     
                     ForEach(courses.indices, id: \.self) { index in // this provides the index to target the value we want
                         GeometryReader { geometry in
-                            CourseView(show: self.$courses[index].show, course: self.courses[index], active: self.$active) // we need to add self as we're inside a GeometryReader
+                            CourseView(
+                                show: self.$courses[index].show,
+                                course: self.courses[index],
+                                active: self.$active,
+                                index: index,
+                                activeIndex: self.$activeIndex,
+                                activeView: self.$activeView) // we need to add self as we're inside a GeometryReader
                                 .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0) // is the second card in fullscreen? If yes, we're going to use -minY to offset it to fill the gap. Else, don't change anythign, set the offset Y to 0.
+                                .opacity(self.activeIndex != index && self.active ? 0 : 1) // if the card is not the one being activated
+                                .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+                                .offset(x: self.activeIndex != index && self.active ? screen.width : 0)
                         }
                         .frame(height: 280)
                         .frame(maxWidth: self.courses[index].show ? .infinity : screen.width - 60)
@@ -55,6 +66,9 @@ struct CourseView: View {
     @Binding var show: Bool
     var course: Course
     @Binding var active: Bool
+    var index: Int
+    @Binding var activeIndex: Int
+    @Binding var activeView: CGSize
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -116,13 +130,63 @@ struct CourseView: View {
             .background(Color(course.color))
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
+            .gesture(
+                show ?
+                DragGesture().onChanged { value in
+                    guard value.translation.height < 300 else { return } // if it isn't meeting the condition then stop running the code from here
+                    guard value.translation.height > 0 else { return }
+                    
+                    self.activeView = value.translation
+                }
+                .onEnded { value in
+                    if self.activeView.height > 50 {
+                        self.show = false
+                        self.active = false
+                        self.activeIndex = -1
+                    }
+                    self.activeView = .zero
+                } // whenever we drag we'll get the translation to our active view and when we release it is going to reset that value.
+                : nil
+            )
             .onTapGesture {
                 self.show.toggle()
                 self.active.toggle()
+                if self.show {
+                    self.activeIndex = self.index
+                } else {
+                    self.activeIndex = -1
+                }
             }
+            
+//            if show {
+//                CourseDetail(course: course, show: $show, active: $active, activeIndex: $activeIndex)
+//                    .background(Color.white)
+//                    .animation(nil)
+//            }
         }
         .frame(height: show ? screen.height : 280)
+        .scaleEffect(1 - self.activeView.height / 1000)
+        .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)), axis: (x: 0, y: 10.0, z: 0))
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+        .hueRotation(Angle(degrees: Double(self.activeView.height)))
+        .gesture(
+            show ?
+            DragGesture().onChanged { value in
+                guard value.translation.height < 300 else { return } // if it isn't meeting the condition then stop running the code from here
+                guard value.translation.height > 0 else { return }
+                
+                self.activeView = value.translation
+            }
+            .onEnded { value in
+                if self.activeView.height > 50 {
+                    self.show = false
+                    self.active = false
+                    self.activeIndex = -1
+                }
+                self.activeView = .zero
+            } // whenever we drag we'll get the translation to our active view and when we release it is going to reset that value.
+            : nil
+        )
         .edgesIgnoringSafeArea(.all)
     }
 }
