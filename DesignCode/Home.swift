@@ -87,8 +87,9 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environment(\.colorScheme, .dark)
-            .environment(\.sizeCategory, .extraLarge)
+        Home()
+//            .environment(\.colorScheme, .dark)
+//            .environment(\.sizeCategory, .extraLarge)
     }
 }
 
