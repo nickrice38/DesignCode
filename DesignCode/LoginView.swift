@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import XCTest
 
 struct LoginView: View {
     @State var email = ""
@@ -21,13 +23,20 @@ struct LoginView: View {
         self.isFocused = false
         self.isLoading = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        Auth.auth().signIn(withEmail: email, password: password) { Result, error in // our Firebase call
             self.isLoading = false
-            self.isSuccessful = true
-//            self.showAlert = true
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.isSuccessful = false
+            if error != nil {
+                self.alertMessage = error?.localizedDescription ?? ""
+                self.showAlert = true
+            } else {
+                self.isSuccessful = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // when we log in
+                    self.isSuccessful = false
+                    self.email = ""
+                    self.password = ""
+                }
             }
         }
     }
@@ -180,7 +189,7 @@ struct CoverView: View {
                     .offset(x: -150, y: -200)
                     .rotationEffect(Angle(degrees: show ? 360+90 : 90))
                     .blendMode(.plusDarker)
-                    .animation(Animation.linear(duration: 120).repeatForever(autoreverses: false))
+//                    .animation(Animation.linear(duration: 120).repeatForever(autoreverses: false))
                     .animation(nil)
                     .onAppear { self.show = true }
                 
@@ -188,7 +197,7 @@ struct CoverView: View {
                     .offset(x: -200, y: -250)
                     .rotationEffect(Angle(degrees: show ? 360 : 0), anchor: .leading)
                     .blendMode(.overlay)
-                    .animation(Animation.linear(duration: 120).repeatForever(autoreverses: false))
+//                    .animation(Animation.linear(duration: 120).repeatForever(autoreverses: false))
                     .animation(nil)
             }
         )
