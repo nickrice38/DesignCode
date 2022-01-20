@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct DesignCodeApp: App {
+    @StateObject var userStore = UserStore()
     
     init() {
         FirebaseApp.configure()
@@ -17,7 +18,7 @@ struct DesignCodeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            Home().environmentObject(userStore)
         }
     }
 }

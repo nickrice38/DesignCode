@@ -46,6 +46,7 @@
 		C4D6F6D527876F24008BAEB2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D6F6D427876F24008BAEB2 /* CourseList.swift */; };
 		C4DB5EFA2795E55C00482F4E /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DB5EF92795E55C00482F4E /* Buttons.swift */; };
 		C4DFED03279891E700826FDD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DFED02279891E700826FDD /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C4DFED052799E6A200826FDD /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DFED042799E6A200826FDD /* UserStore.swift */; };
 		C4FC1CB6277C889C000362CF /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */; };
 		C4FC1CB8277C889C000362CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC1CB7277C889C000362CF /* ContentView.swift */; };
 		C4FC1CBA277C889D000362CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FC1CB9277C889D000362CF /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		C4D6F6D427876F24008BAEB2 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 		C4DB5EF92795E55C00482F4E /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		C4DFED02279891E700826FDD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C4DFED042799E6A200826FDD /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		C4FC1CB2277C889C000362CF /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FC1CB5277C889C000362CF /* DesignCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeApp.swift; sourceTree = "<group>"; };
 		C4FC1CB7277C889C000362CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				C4FC1CC5277CC0CF000362CF /* Home.swift */,
 				C433A891277DE1E00044DC7F /* HomeView.swift */,
 				C421618E279736E200055754 /* LoginView.swift */,
+				C4DFED042799E6A200826FDD /* UserStore.swift */,
 				C4D6F6D427876F24008BAEB2 /* CourseList.swift */,
 				C40DB12027944D9D002BFBA9 /* CourseStore.swift */,
 				C439E9E72788C3E400CE03EC /* CourseDetail.swift */,
@@ -314,6 +317,7 @@
 				C421619B27974E9B00055754 /* LoadingView.swift in Sources */,
 				C4D6F6BD2786241A008BAEB2 /* Modifiers.swift in Sources */,
 				C433A89A277E04BE0044DC7F /* TabBar.swift in Sources */,
+				C4DFED052799E6A200826FDD /* UserStore.swift in Sources */,
 				C402AABF27945CF2003FC118 /* BlurView.swift in Sources */,
 				C433A896277DFA0E0044DC7F /* UpdateDetail.swift in Sources */,
 				C4D6F6D527876F24008BAEB2 /* CourseList.swift in Sources */,
