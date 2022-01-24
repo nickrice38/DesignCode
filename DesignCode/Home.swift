@@ -17,25 +17,21 @@ struct Home: View {
         ZStack {
             Color("background2")
                 .edgesIgnoringSafeArea(.all)
-            
-            HomeView(showProfile: $showProfile, showContent: $showContent)
-                .padding(.top, 44)
-                .background(
-                    VStack {
-                        LinearGradient(gradient: Gradient(colors: [Color("background2"), Color("background1")]), startPoint: .top, endPoint: .bottom)
-                            .frame(height: 200)
-                        
-                        Spacer()
-                    }
-                        .background(Color("background1"))
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+
+            HomeBackgroundView(showProfile: $showProfile)
                 .offset(y: showProfile ? -450 : 0)
                 .rotation3DEffect(Angle(degrees: showProfile ? Double(viewState.height / 10) - 10 : 0), axis: (x: 10.0, y: 0, z:0))
                 .scaleEffect(showProfile ? 0.9 : 1)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 .edgesIgnoringSafeArea(.all)
+            
+//            TabView {
+                HomeView(showProfile: $showProfile, showContent: $showContent, viewState: $viewState)
+//                    .tabItem {
+//                        Image(systemName: "play.circle.fill")
+//                        Text("Home")
+//                    }
+//            }
             
             MenuView(showProfile: $showProfile) // our binding for sign out
                 .background(Color.black.opacity(0.001))
@@ -124,7 +120,7 @@ struct AvatarView: View {
     
     var body: some View {
         VStack {
-            if user.isLogged {
+            if !user.isLogged {
                 Button(action: { self.showProfile.toggle() }) {
                 Image("me2")
                     .renderingMode(.original)
@@ -152,3 +148,19 @@ struct AvatarView: View {
 }
 
 let screen = UIScreen.main.bounds // to detect the dimensions of the screen. We can use this across all files.
+
+struct HomeBackgroundView: View {
+    @Binding var showProfile: Bool
+    
+    var body: some View {
+        VStack {
+            LinearGradient(gradient: Gradient(colors: [Color("background2"), Color("background1")]), startPoint: .top, endPoint: .bottom)
+                .frame(height: 200)
+            
+            Spacer()
+        }
+        .background(Color("background1"))
+        .clipShape(RoundedRectangle(cornerRadius: showProfile ? 30 : 0, style: .continuous))
+        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
+    }
+}

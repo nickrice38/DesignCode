@@ -11,85 +11,130 @@ struct HomeView: View {
     @Binding var showProfile: Bool
     @Binding var showContent: Bool
     @State private var showUpdate = false
+    @Binding var viewState: CGSize
+    @ObservedObject var store = CourseStore()
+    @State var active = false
+    @State var activeIndex = -1
+    @State var activeView = CGSize.zero
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack {
-                    Text("Watching")
-                        .font(.system(size: 28, weight: .bold)) // this will replace the custom modifier below
-                        .modifier(CustomFontModifier(size: 28))
-                    
-                    Spacer()
-                    
-                    AvatarView(showProfile: $showProfile)
-                    
-                    Button(action:{ self.showUpdate.toggle() }) {
-                        Image(systemName: "bell")
-                            .foregroundColor(.primary)
-                        //                        .renderingMode(.original)
-                            .font(.system(size: 16, weight: .medium))
-                            .frame(width: 36, height: 36)
-                            .background(Color("background3"))
-                            .clipShape(Circle())
-                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                    }
-                    .sheet(isPresented: $showUpdate) {
-                        UpdateList()
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.leading, 14)
-                .padding(.top, 30)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    WatchRingsView()
-                        .padding(.horizontal, 30)
-                        .padding(.bottom, 30)
-                        .onTapGesture {
-                            self.showContent = true
+        GeometryReader { bounds in
+            ScrollView {
+                VStack {
+                    HStack {
+                        Text("Watching")
+                            .font(.system(size: 28, weight: .bold)) // this will replace the custom modifier below
+                            .modifier(CustomFontModifier(size: 28))
+                        
+                        Spacer()
+                        
+                        AvatarView(showProfile: self.$showProfile)
+                        
+                        Button(action:{ self.showUpdate.toggle() }) {
+                            Image(systemName: "bell")
+                                .foregroundColor(.primary)
+                            //                        .renderingMode(.original)
+                                .font(.system(size: 16, weight: .medium))
+                                .frame(width: 36, height: 36)
+                                .background(Color("background3"))
+                                .clipShape(Circle())
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                         }
-                }
+                        .sheet(isPresented: self.$showUpdate) {
+                            UpdateList()
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.leading, 14)
+                    .padding(.top, 30)
+                    .blur(radius: self.active ? 20 : 0)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(sectionData) { item in
-                                GeometryReader { geometry in
-                                    SectionView(section: item)
-                                        .rotation3DEffect(Angle(degrees:
-                                                                    Double(geometry.frame(in: .global).minX - 30) / -20
-                                                               ), axis: (x: 0, y: 10, z: 0))
-                                }
-                                .frame(width: 275, height: 275)
+                        WatchRingsView()
+                            .padding(.horizontal, 30)
+                            .padding(.bottom, 30)
+                            .onTapGesture {
+                                self.showContent = true
                             }
-                        }
-                        .padding(30)
-                        .padding(.bottom, 30)
                     }
-                    .offset(y: -30)
-                
-                HStack {
-                    Text("Courses")
-                        .font(.title).bold()
+                    .blur(radius: self.active ? 20 : 0)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(sectionData) { item in
+                                    GeometryReader { geometry in
+                                        SectionView(section: item)
+                                            .rotation3DEffect(Angle(degrees:
+                                                Double(geometry.frame(in: .global).minX - 30) / -getAngleMultiplier(bounds: bounds)
+                                            ), axis: (x: 0, y: 10, z: 0))
+                                    }
+                                    .frame(width: 275, height: 275)
+                                }
+                            }
+                            .padding(30)
+                            .padding(.bottom, 30)
+                        }
+                        .offset(y: -30)
+                        .blur(radius: self.active ? 20 : 0)
+                    
+                    HStack {
+                        Text("Courses")
+                            .font(.title).bold()
+                        Spacer()
+                    }
+                    .padding(.leading, 30)
+                    .offset(y: -60)
+                    .blur(radius: self.active ? 20 : 0)
+                    
+                    VStack(spacing: 30) {
+                        ForEach(self.store.courses.indices, id: \.self) { index in // this provides the index to target the value we want
+                            GeometryReader { geometry in
+                                CourseView(
+                                    show: self.$store.courses[index].show,
+                                    course: self.store.courses[index],
+                                    active: self.$active,
+                                    index: index,
+                                    activeIndex: self.$activeIndex,
+                                    activeView: self.$activeView, bounds: bounds) // we need to add self as we're inside a GeometryReader
+                                    .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0) // is the second card in fullscreen? If yes, we're going to use -minY to offset it to fill the gap. Else, don't change anythign, set the offset Y to 0.
+                                    .opacity(self.activeIndex != index && self.active ? 0 : 1) // if the card is not the one being activated
+                                    .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+                                    .offset(x: self.activeIndex != index && self.active ? bounds.size.width : 0)
+                            }
+                            .frame(height: self.horizontalSizeClass == .regular ? 80 : 280)
+                            .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
+                            .zIndex(self.store.courses[index].show ? 1 : 0) // by default all the cards have a z index of 0 but if it is active it will be on top
+                        }
+                    }
+                    .padding(.bottom, 300)
+                    .offset(y: -60)
+                        
                     Spacer()
                 }
-                .padding(.leading, 30)
-                .offset(y: -60)
-                
-                SectionView(section: sectionData[2], width: screen.width - 60, height: 275)
-                    .offset(y: -60)
-                    
-                Spacer()
+                .frame(width: bounds.size.width) // GeometryReader using our bounds value supports split screen
+                .offset(y: self.showProfile ? -450 : 0)
+                .rotation3DEffect(Angle(degrees: self.showProfile ? Double(self.viewState.height / 10) - 10 : 0), axis: (x: 10.0, y: 0, z:0))
+                .scaleEffect(self.showProfile ? 0.9 : 1)
+                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
             }
-            .frame(width: screen.width)
         }
         }
     }
     
+func getAngleMultiplier(bounds: GeometryProxy) -> Double {
+    if bounds.size.width > 500 {
+        return 80
+    } else {
+        return 20
+    }
+}
+
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            HomeView(showProfile: .constant(false), showContent: .constant(false))
+            HomeView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero))
+                .environmentObject(UserStore())
         }
     }
     

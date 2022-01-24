@@ -58,6 +58,7 @@ struct UpdateList: View {
                 Text("Add Update")
             }, trailing: EditButton())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
