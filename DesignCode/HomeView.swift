@@ -17,6 +17,7 @@ struct HomeView: View {
     @State var activeIndex = -1
     @State var activeView = CGSize.zero
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @State var isScrollable = false
     
     var body: some View {
         GeometryReader { bounds in
@@ -97,7 +98,9 @@ struct HomeView: View {
                                     active: self.$active,
                                     index: index,
                                     activeIndex: self.$activeIndex,
-                                    activeView: self.$activeView, bounds: bounds) // we need to add self as we're inside a GeometryReader
+                                    activeView: self.$activeView, bounds: bounds,
+                                    isScrollable: self.$isScrollable
+                                ) // we need to add self as we're inside a GeometryReader
                                     .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0) // is the second card in fullscreen? If yes, we're going to use -minY to offset it to fill the gap. Else, don't change anythign, set the offset Y to 0.
                                     .opacity(self.activeIndex != index && self.active ? 0 : 1) // if the card is not the one being activated
                                     .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
@@ -119,6 +122,7 @@ struct HomeView: View {
                 .scaleEffect(self.showProfile ? 0.9 : 1)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
             }
+            .disabled(self.active && !self.isScrollable ? true : false)
         }
         }
     }
